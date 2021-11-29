@@ -13,8 +13,9 @@ import org.mapstruct.Named;
 @Mapper(componentModel = "spring")
 public interface CityMapper extends EntityMapper<CityDTO, City> {
 
-
     CityDTO toDto(City s);
+
+    City toEntity(CityDTO cityDTO);
 
     @Named("id")
     @BeanMapping(ignoreByDefault = true)

@@ -7,7 +7,7 @@
         objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
     <changeSet id="1638099499826-1" author="lukamugosa (generated)">
         <createTable tableName="city">
-            <column name="id" type="BIGINT">
+            <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_city"/>
             </column>
             <column name="name" type="VARCHAR(255)"/>

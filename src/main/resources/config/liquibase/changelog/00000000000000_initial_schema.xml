@@ -30,7 +30,7 @@
 
     <changeSet id="1638029134254-3" author="lukamugosa (generated)">
         <createTable tableName="user">
-            <column name="id" type="BIGINT">
+            <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_user"/>
             </column>
             <column name="first_name" type="VARCHAR(255)"/>
