@@ -1,2 +1,2 @@
-id;first_name;last_name;full_name;password;username;email
-1;Luka;Mugosa;Luka Mugosa;$2a$10$fRLdj0iYiOT6pUKRx1AZduQDXJcdJpz3cojkkKJd6SBHRE6q4CoVa;luka.mugosa;luka@test.com
+id;first_name;last_name;full_name;password;username;email;city_id
+1;Luka;Mugosa;Luka Mugosa;$2a$10$fRLdj0iYiOT6pUKRx1AZduQDXJcdJpz3cojkkKJd6SBHRE6q4CoVa;luka.mugosa;luka@test.com;1

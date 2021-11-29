@@ -48,6 +48,10 @@ public class User implements Serializable {
     @Column(name = "email")
     private String email;
 
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "role_user",
         joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),

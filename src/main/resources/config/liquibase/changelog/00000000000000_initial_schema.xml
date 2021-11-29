@@ -39,6 +39,7 @@
             <column name="password" type="VARCHAR(255)"/>
             <column name="username" type="VARCHAR(255)"/>
             <column name="email" type="VARCHAR(255)"/>
+            <column name="city_id" type="BIGINT"/>
         </createTable>
     </changeSet>
 
@@ -52,6 +53,11 @@
         <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="role_user"
                                  constraintName="fk_role_user_on_user" referencedColumnNames="id"
                                  referencedTableName="user"/>
+    </changeSet>
+
+    <changeSet id="1638099499826-8" author="lukamugosa (generated)">
+        <addForeignKeyConstraint baseColumnNames="city_id" baseTableName="user" constraintName="FK_USER_ON_CITY"
+                                 referencedColumnNames="id" referencedTableName="city"/>
     </changeSet>
 
     <changeSet author="lukamugosa" id="00000000000002" context="dev">
@@ -92,6 +98,7 @@
             <column name="password" type="string"/>
             <column name="username" type="string"/>
             <column name="email" type="string"/>
+            <column name="city_id" type="numeric"/>
         </loadData>
     </changeSet>
     <changeSet id="1638029134254-7" author="lukamugosa">
@@ -103,6 +110,10 @@
             <column name="user_id" type="numeric"/>
             <column name="role_name" type="string"/>
         </loadData>
+    </changeSet>
+
+    <changeSet id="1638099499826-4" author="lukamugosa (generated)">
+        <dropTable cascadeConstraints="true" tableName="jhi_date_time_wrapper"/>
     </changeSet>
 
 </databaseChangeLog>
