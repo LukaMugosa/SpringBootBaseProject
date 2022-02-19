@@ -2,10 +2,13 @@ package me.amplitudo.stanley.util;
 
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.amplitudo.stanley.web.errors.*;
+import me.amplitudo.stanley.web.errors.BadActionException;
+import me.amplitudo.stanley.web.errors.EntityNotFoundException;
+import me.amplitudo.stanley.web.errors.ExceptionErrors;
+import me.amplitudo.stanley.web.errors.InvalidCredentialsException;
+import me.amplitudo.stanley.web.errors.UnauthorizedException;
 import me.amplitudo.stanley.web.vm.JsonErrorResponseVM;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.zalando.problem.violations.ConstraintViolationProblem;
 
 @Slf4j
 @NoArgsConstructor
@@ -24,18 +27,17 @@ public class ExceptionUtil {
         } else if (object instanceof UnauthorizedException) {
             code = ExceptionErrors.UNAUTHORIZED.getCode();
             description = ExceptionErrors.UNAUTHORIZED.getDescription();
-        } else if(object instanceof UsernameNotFoundException) {
+        } else if (object instanceof UsernameNotFoundException) {
             code = ExceptionErrors.USER_DOES_NOT_EXIST.getCode();
             description = ExceptionErrors.USER_DOES_NOT_EXIST.getDescription();
-        } else if(object instanceof InvalidCredentialsException) {
+        } else if (object instanceof InvalidCredentialsException) {
             code = ExceptionErrors.INVALID_CREDENTIALS.getCode();
             description = ExceptionErrors.INVALID_CREDENTIALS.getDescription();
-        } else if(object instanceof EntityNotFoundException) {
+        } else if (object instanceof EntityNotFoundException) {
             EntityNotFoundException ex = (EntityNotFoundException) object;
             code = ExceptionErrors.ENTITY_NOT_FOUND.getCode();
             description = ex.getMessage();
-        }
-        else {
+        } else {
             log.error("Exception is not registered.");
             code = ExceptionErrors.SERVER_ERROR.getCode();
             description = ExceptionErrors.SERVER_ERROR.getDescription();

@@ -5,6 +5,7 @@ import me.amplitudo.stanley.service.RegistrationService;
 import me.amplitudo.stanley.service.dto.RegistrationDTO;
 import me.amplitudo.stanley.service.dto.UserDTO;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,7 @@ public class RegistrationController {
     private final RegistrationService registrationService;
 
     @PostMapping("/register")
-    public ResponseEntity<UserDTO> register(@RequestBody RegistrationDTO registrationDTO) throws URISyntaxException {
+    public ResponseEntity<UserDTO> register(@Validated @RequestBody RegistrationDTO registrationDTO) throws URISyntaxException {
         UserDTO registeredUser = registrationService.registerUser(registrationDTO);
         return ResponseEntity
                 .created(new URI("/api/register/" + registeredUser.getId()))

@@ -7,7 +7,8 @@ public enum ExceptionErrors {
     SERVER_ERROR("E102", "Server error."),
     INVALID_CREDENTIALS("E103", "Invalid credentials."),
     ENTITY_NOT_FOUND("E104", "Entity not found"),
-    EMAIL_EXISTS("E105", "User with this email already exists");
+    EMAIL_EXISTS("E105", "User with this email already exists"),
+    MALFORMED_DATA("E106", "Sent data is malformed");
 
     private final String code;
     private final String description;
